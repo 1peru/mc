@@ -3,34 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Principal</title>
+    <title>Mi Página con iFrame en Full Screen</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100vw;
+            height: 600vh; /* Ajusta este valor según tus necesidades */
+            border: 0;
+        }
+    </style>
 </head>
 <body>
 
-<iframe id="miIframe" src="https://alphayomega-kanaku-marketing.hf.space"></iframe>
-
-<script>
-    window.onload = function() {
-        var iframe = document.getElementById('miIframe').contentDocument;
-
-        // Modificar directamente el contenido del iframe si es posible
-        if (iframe) {
-            var elemento = iframe.querySelector('.primary.svelte-cmf5ev');
-            if (elemento) {
-                elemento.style.padding = '10px 20px';
-                elemento.style.border = 'none';
-                elemento.style.color = 'white';
-                elemento.style.backgroundColor = 'blue';
-                elemento.style.textIndent = '-9999px';
-
-                // Añadir el texto "Enviar" después del contenido
-                var contenidoEnviar = iframe.createElement('div');
-                contenidoEnviar.textContent = 'Enviar';
-                elemento.appendChild(contenidoEnviar);
-            }
-        }
-    };
-</script>
+<!-- Aquí colocas tu iframe -->
+<iframe src="https://alphayomega-kanaku-marketing.hf.space"></iframe>
 
 </body>
 </html>
