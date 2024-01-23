@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página con iFrame en Full Screen</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        iframe {
-            width: 100vw;
-            height: 600vh;
-            border: 0;
-        }
-    </style>
+    <title>Mi Página Principal</title>
 </head>
 <body>
 
-<!-- Aquí colocas tu iframe -->
-<iframe src="https://alphayomega-kanaku-marketing.hf.space"></iframe>
+<iframe id="miIframe" src="https://alphayomega-kanaku-marketing.hf.space"></iframe>
+
+<script>
+    window.onload = function() {
+        var iframe = document.getElementById('miIframe').contentDocument;
+
+        // Crear un estilo y aplicar reglas CSS directamente al contenido del iframe
+        var estilo = iframe.createElement('style');
+        estilo.textContent = `
+            .primary.svelte-cmf5ev {
+                padding: 10px 20px;
+                border: none; 
+                color: white;
+                background-color: blue;
+                text-indent: -9999px;
+            }
+
+            .primary.svelte-cmf5ev::after {
+                content: "Enviar";
+                text-indent: 0;
+            }
+        `;
+
+        iframe.head.appendChild(estilo);
+    };
+</script>
 
 </body>
 </html>
