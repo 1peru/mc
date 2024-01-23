@@ -1,37 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Página con iFrame en Full Screen</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100vw;
+      height: 600vh; /* Ajusta este valor según tus necesidades */
+      border: 0;
+    }
+  </style>
 </head>
-
 <body>
-
-  <!-- El iframe -->
-  <iframe id="myframe" src="https://example.com"></iframe>
+  <!-- Aquí colocas tu iframe -->
+  <iframe src="https://alphayomega-kanaku-marketing.hf.space"></iframe>
 
   <script>
-
-    // CSS a inyectar
-    let css = `.primary {
-      color: blue;
-    }`;
-
-    // Seleccionar iframe
-    let iframe = document.getElementById('myframe');
-
-    // Crear style tag
-    let style = document.createElement('style');
-
-    // Agregar CSS
-    style.innerHTML = css; 
-
-    // Obtener document del iframe
-    let iframeDoc = iframe.contentWindow.document;
-
-    // Inyectar style tag
-    iframeDoc.head.appendChild(style);
-
+    window.addEventListener('load', function() {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'ruta/estilos.css'; // Ruta al archivo CSS que deseas cargar
+      document.head.appendChild(link);
+    });
   </script>
-
 </body>
 </html>
