@@ -13,24 +13,22 @@
     window.onload = function() {
         var iframe = document.getElementById('miIframe').contentDocument;
 
-        // Crear un estilo y aplicar reglas CSS directamente al contenido del iframe
-        var estilo = iframe.createElement('style');
-        estilo.textContent = `
-            .primary.svelte-cmf5ev {
-                padding: 10px 20px;
-                border: none; 
-                color: white;
-                background-color: blue;
-                text-indent: -9999px;
-            }
+        // Modificar directamente el contenido del iframe si es posible
+        if (iframe) {
+            var elemento = iframe.querySelector('.primary.svelte-cmf5ev');
+            if (elemento) {
+                elemento.style.padding = '10px 20px';
+                elemento.style.border = 'none';
+                elemento.style.color = 'white';
+                elemento.style.backgroundColor = 'blue';
+                elemento.style.textIndent = '-9999px';
 
-            .primary.svelte-cmf5ev::after {
-                content: "Enviar";
-                text-indent: 0;
+                // Añadir el texto "Enviar" después del contenido
+                var contenidoEnviar = iframe.createElement('div');
+                contenidoEnviar.textContent = 'Enviar';
+                elemento.appendChild(contenidoEnviar);
             }
-        `;
-
-        iframe.head.appendChild(estilo);
+        }
     };
 </script>
 
